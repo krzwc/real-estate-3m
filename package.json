@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "json-server scrap3m.json"
+    "start": "node server.js",
+    "localstart": "json-server scrap3m.json"
   },
   "keywords": [],
   "author": "",
