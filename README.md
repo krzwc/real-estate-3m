@@ -1,11 +1,11 @@
 # 3M Real Estate App client
 
 Full-featured client app demo available at [http://bit.ly/3MRealEstateApp](http://bit.ly/3MRealEstateApp).<br>
-Full-featured REST server demo available at [http://bit.ly/3MRealEstateApp](http://bit.ly/3MRealEstateApp).
+Full-featured REST API server demo available at [http://bit.ly/3MRealEstateApp](http://bit.ly/3MRealEstateApp).
 
 ### Use of the app
 1. Follow the instructions of the webscraper script [https://github.com/krzykaczu/real-estate-3m-webscraper](https://github.com/krzykaczu/real-estate-3m-webscraper)<br>
-2. Follow the instructions of the server app [https://github.com/krzykaczu/real-estate-3m-server](https://github.com/krzykaczu/real-estate-3m-server)
+2. Follow the instructions of the server app [https://github.com/krzykaczu/real-estate-3m-server](https://github.com/krzykaczu/real-estate-3m-server)<br>
 3. Proceed with the following:<br>
 Uncomment:
 ```javascript
