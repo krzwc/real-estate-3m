@@ -21,7 +21,7 @@ and comment:
 The app renders only 20 markers instead of all webscraped data.<br>
 To change that please provide your own Google API Key
 ```html
-// index.html
+<!-- index.html -->
 <script 
   async 
   defer 
