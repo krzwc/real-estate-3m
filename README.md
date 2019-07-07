@@ -9,7 +9,7 @@ Full-featured demo of the client app available at [http://bit.ly/3MRealEstateApp
 git clone https://github.com/krzykaczu/real-estate-3m-webscraper.git
 cd  real-estate-3m-webscraper
 ```
-To check if python3 if installed locally:
+To check if python3 is installed locally:
 ```
 python3 --version
 ```
