@@ -29,4 +29,24 @@ python scrap3m.py
 deactivate
 ```
 
-The script generates ```scrap3m.json``` file which should be copied in order to launch the local instance of the JSON server.
+The script generates ```scrap3m.json``` file which should be copied in order to launch the local instance of the JSON server.<br>
+**Notice:**<br>
+The script saves data from only 20 instead of all webscraped ads.<br>
+In order to change that change:
+```python
+# scrap3m.py
+    for i in range(2):
+        print(i)
+        soup_page = fetch_url(url_base + str(i))
+        allAddArr['data'] += scrap3m(soup_page)
+        time.sleep(5)
+```
+into:
+```python
+# scrap3m.py
+    for i in range(total):
+        print(i)
+        soup_page = fetch_url(url_base + str(i))
+        allAddArr['data'] += scrap3m(soup_page)
+        time.sleep(5)
+```
