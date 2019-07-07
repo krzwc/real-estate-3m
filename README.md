@@ -13,6 +13,6 @@ cd real-estate-3m-server
 ```
 ```scrap3m.json``` should be copied to the folder and then:
 ```
-json-server scrap3m.json
+npm run localstart
 ```
-The server should be running at localhost on port 4000.
+The server should be running on [http://localhost:4000](http://localhost:4000).
