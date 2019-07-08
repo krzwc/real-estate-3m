@@ -1,8 +1,8 @@
 # 3M Real Estate App data webscraper
-This script serves for data collection for the 3M Real Estate App.<br>
+This script collects data for the 3M Real Estate App available at [https://github.com/krzykaczu/real-estate-3m-client](https://github.com/krzykaczu/real-estate-3m-client)<br>
 Data access is provided by the JSON server app.<br>
-Full-featured demo of the server available at [http://bit.ly/3MRealEstateDataServer](http://bit.ly/3MRealEstateDataServer).<br>
-Full-featured demo of the client app available at [http://bit.ly/3MRealEstateApp](http://bit.ly/3MRealEstateApp).
+Fully-featured demo of the server available at [http://bit.ly/3MRealEstateDataServer](http://bit.ly/3MRealEstateDataServer).<br>
+Fully-featured demo of the client app available at [http://bit.ly/3MRealEstateApp](http://bit.ly/3MRealEstateApp).
 
 ### Usage of the script
 ```
@@ -29,8 +29,8 @@ python scrap3m.py
 deactivate
 ```
 
-The script generates ```scrap3m.json``` file which should be copied in order to launch the local instance of the JSON server.<br>
-**Notice:**<br>
+The script generates `scrap3m.json` file which should be copied in order to launch the local instance of the JSON server.<br>
+**Note:**<br>
 The script saves data from only 20 instead of all webscraped ads.<br>
 In order to change that change:
 ```python
@@ -50,3 +50,4 @@ into:
         allAddArr['data'] += scrap3m(soup_page)
         time.sleep(5)
 ```
+But please be sure to follow other instructions of the client app installation in case of the change.
