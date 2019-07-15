@@ -42,7 +42,7 @@ export const getMarkers = (geocoder, data, resultsMap, icon) => {
           );
         }
       });
-    }, index * 100);
+    }, index * 500);
   });
   return [markerArr, matchedMarkerArr];
 };
