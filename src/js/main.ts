@@ -28,7 +28,7 @@ let mapsCallback = () => {
 };
 window.mapsCallback = mapsCallback;
 
-const searchInput = document.querySelector(".search");
+const searchInput = document.querySelector('.search');
 const suggestions = document.querySelector(".suggestions");
 
 searchInput.addEventListener("keyup", e =>
