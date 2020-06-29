@@ -1,7 +1,9 @@
-import axios from 'axios';
-import endpoint from './utils/endpoint';
+/*import axios from 'axios';*/
 
-const connect = async () => {
+import { getAds } from './api';
+import { toAdData } from './model';
+
+/*const connect = async () => {
     let locations = [];
     try {
         await axios
@@ -17,6 +19,8 @@ const connect = async () => {
         console.error(error);
     }
     return locations;
-};
+};*/
+
+const connect = (endpoint) => getAds(endpoint).map((json) => json.map(toAdData));
 
 export default connect;
