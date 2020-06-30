@@ -1,0 +1,1 @@
+export { toAdData } from './model';
