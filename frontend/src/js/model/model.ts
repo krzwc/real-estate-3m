@@ -2,18 +2,20 @@ import { compose, join, map } from 'ramda';
 import { upperFirst, words } from "lodash-es";
 
 // data type
-const AdData = (id, url, loc, price, rooms, m2, floor) => ({
+const AdData = (id, url, loc, price, rooms, m2, floor, lon, lat) => ({
     id,
     url,
     loc,
     price,
     rooms,
     m2,
-    floor
+    floor,
+    lon,
+    lat
 });
 
 // constructor
-const toAdData = ({ id, url, loc, price, rooms, m2, floor }) =>
+const toAdData = ({ id, url, loc, price, rooms, m2, floor, lon, lat }) =>
     AdData(
         id,
         url,
@@ -25,7 +27,9 @@ const toAdData = ({ id, url, loc, price, rooms, m2, floor }) =>
         price,
         rooms,
         m2,
-        floor
+        floor,
+        lon,
+        lat
     );
 
 export { toAdData }

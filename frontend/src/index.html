@@ -2,15 +2,18 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+    <link href="https://cdn.maptiler.com/mapbox-gl-js/v1.5.1/mapbox-gl.css" rel="stylesheet" />
+    <style>
+      #map {position: absolute; top: 0; right: 0; bottom: 0; left: 0;}
+    </style>
     <title>Document</title>
     <% for (let css in htmlWebpackPlugin.files.css) { %>
     <link rel="stylesheet" href="<%= htmlWebpackPlugin.files.css[css] %>" />
     <% } %>
   </head>
   <body>
-    <div id="googleMap" class="map"></div>
+    <div id="map"></div>
     <div class="floating-panel">
       <form class="search-form">
         <input type="text" class="search" placeholder="Street or District..." />
@@ -20,11 +23,5 @@
     <% for (let js in htmlWebpackPlugin.files.js) { %>
     <script src="<%= htmlWebpackPlugin.files.js[js] %>"></script>
     <% } %>
-    <script
-      async
-      defer
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBGt9iRVic4NaVo6OqvqR7XOxJoN2hbkgA&callback=mapsCallback"
-      type="text/javascript"
-    ></script>
   </body>
 </html>
