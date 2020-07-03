@@ -1,13 +1,30 @@
 import { setNullOnAllMarkers, setMapOnMarkers } from "./mapUtils";
+import mapboxgl from "mapbox-gl";
 
 //func displaying all matches in the location array based on a provided phrase
-export const matchAndDisplayLocations = (data, e, mMA, map, suggestions) => {
+export const matchAndDisplayLocations = (data, e, suggestions) => {
   const matchArray = filterLocations(e.target.value, data);
-  const displayMarkerArr = filterMarkers(mMA, matchArray);
+  // const displayMarkerArr = filterMarkers(mMA, matchArray);
   suggestions.innerHTML = mapArrayToHtml(matchArray, e.target.value);
 
-  setNullOnAllMarkers(filterMarkerPropeties(mMA));
-  setMapOnMarkers(filterMarkerPropeties(displayMarkerArr), map);
+  // setNullOnAllMarkers(filterMarkerPropeties(mMA));
+  // setMapOnMarkers(filterMarkerPropeties(displayMarkerArr), map);
+
+  // console.log(matchArray)
+  document.querySelectorAll('.marker').forEach((marker) => marker.remove());
+  const markers = [];
+  matchArray.forEach((loc) => {
+    const el = document.createElement('div');
+    el.className = 'marker';
+
+    markers.push(new mapboxgl.Marker(el)
+        .setLngLat([loc.lon, loc.lat])
+        .addTo(map)
+    )})
+
+  console.log(matchArray)
+
+  return matchArray
 };
 
 export const mapArrayToHtml = (arr, keyword) => {

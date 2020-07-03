@@ -1,36 +1,30 @@
 import '../css/main.css';
 import connect from './connect';
-import { compose } from 'ramda';
+import { compose, once } from 'ramda';
 import endpoint from './utils/endpoint';
 import mapboxgl from 'mapbox-gl';
-import { displayData } from "./utils/panelUtils";
+import {displayData, mapArrayToHtml, generateHtml, filterLocations} from "./utils/panelUtils";
+// import { isEmpty } from 'lodash-es';
 
 //map imports
-import myMap from './components/map';
+// import myMap from './components/map';
 
 //panel imports
 import { matchAndDisplayLocations } from './utils/panelUtils';
 
 //app state
 // let map; // google map api data
-let markerArr = []; // array of all markers
-let matchedMarkerArr = []; // array of all markers based on matched locations
+// let markerArr = []; // array of all markers
+// let matchedMarkerArr = []; // array of all markers based on matched locations
 
 const searchInput = document.querySelector('.search');
 const suggestions = document.querySelector('.suggestions');
 
-const addEventListeners = (locations) => {
-    searchInput.addEventListener('keyup', (e) =>
-        matchAndDisplayLocations(locations, e, matchedMarkerArr, map, suggestions),
-    );
-    searchInput.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter') {
-            e.preventDefault();
-        }
-    });
+/*.then((locs) => {
+    document.querySelectorAll('.marker').forEach((marker) => marker.remove());
 
-    return locations
-};
+    console.log(locs)
+});*/
 
 mapboxgl.accessToken = 'ONpvAwYP2JiHDEIAbqXx';
 
@@ -39,7 +33,7 @@ const map = new mapboxgl.Map({
     style: 'https://api.maptiler.com/maps/dbbf53d1-09f9-456b-bd9b-c354829441ed/style.json?key=ONpvAwYP2JiHDEIAbqXx',
     center: [18.638306, 54.372158], // starting position
     zoom: 12 // starting zoom
-})
+});
 
 //resolve all locations and then apply them to the map
 const mapsCallback = () => {
@@ -47,23 +41,50 @@ const mapsCallback = () => {
         console.error,
         compose(
             /*(locations) => ([map, markerArr, matchedMarkerArr] = myMap(locations, suggestions)),*/
+            /*(filteredLocProm) => filteredLocProm.then((locs) => {
+                document.querySelectorAll('.marker').forEach((marker) => marker.remove());
+
+                console.log(locs)
+                // const markers = [];
+                // locations.forEach((loc) => {
+                // const el = document.createElement('div');
+                // el.className = 'marker';
+                //
+                // markers.push(new mapboxgl.Marker(el)
+                //     .setLngLat([loc.lon, loc.lat])
+                //     .addTo(map)
+                // )})
+            }),*/
             (locations) => {
+                searchInput.addEventListener('keyup', (e) => {
+                    const matchArray = filterLocations(e.target.value, locations);
+                    suggestions.innerHTML = mapArrayToHtml(matchArray, e.target.value);
+
+                    document.querySelectorAll('.marker').forEach((marker) => marker.remove());
+                    const markers = [];
+                    matchArray.forEach((loc) => {
+                        const el = document.createElement('div');
+                        el.className = 'marker';
+
+                        markers.push(new mapboxgl.Marker(el)
+                            .setLngLat([loc.lon, loc.lat])
+                            .addTo(map)
+                        )})
+                })},
+            (locations) => {
+                suggestions.innerHTML = displayData(locations);
+                const markers = [];
                 locations.forEach((loc) => {
                     const el = document.createElement('div');
                     el.className = 'marker';
 
-                    new mapboxgl.Marker(el)
+                    markers.push(new mapboxgl.Marker(el)
                         .setLngLat([loc.lon, loc.lat])
-                        .addTo(map);
-                    });
-            },
-            (locations) => {
-                suggestions.innerHTML = displayData(locations)
+                        .addTo(map)
+                    )})
 
                 return locations
-            },
-            addEventListeners
-        ),
+            }
     );
 };
 
