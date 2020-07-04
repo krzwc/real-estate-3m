@@ -4,10 +4,15 @@ import { compose } from 'ramda';
 import endpoint from './utils/endpoint';
 import mapboxgl from 'mapbox-gl';
 import { displayData, mapArrayToHtml, filterLocations, mapToMarkers } from "./utils/panelUtils";
+import { HTMLElementEvent, AdDataResponse } from './interfaces'
 
 mapboxgl.accessToken = 'ONpvAwYP2JiHDEIAbqXx';
 
 class App {
+
+    private map: mapboxgl.Map;
+    private searchInput: HTMLInputElement;
+    private suggestions: HTMLUListElement;
 
     constructor() {
         this.map = new mapboxgl.Map({
@@ -25,15 +30,16 @@ class App {
         console.error,
         compose(
             (locations) => {
-                this.searchInput.addEventListener('keyup', ({ target: { value: inputValue }}) => {
+                this.searchInput.addEventListener('keyup', ({ target: { value: inputValue }}: HTMLElementEvent<HTMLInputElement>) => {
                     const matchArray = filterLocations(inputValue, locations);
                     this.suggestions.innerHTML = mapArrayToHtml(matchArray, inputValue);
+                    console.log(mapArrayToHtml(matchArray, inputValue))
 
                     document.querySelectorAll('.marker').forEach((marker) => marker.remove());
 
                     mapToMarkers(matchArray, this.map);
                 })},
-            (locations) => {
+            (locations: AdDataResponse) => {
                 this.suggestions.innerHTML = displayData(locations);
 
                 mapToMarkers(locations, this.map);

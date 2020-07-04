@@ -1,1 +1,1 @@
-export { toAdData } from './model';
+export { toAdData, invokableCompose } from './model';

@@ -1,14 +1,15 @@
 import { Task } from '../types';
 import { toAdData } from '../model';
+import { AdDataResponse } from '../interfaces';
 
-const toJSON = (response) => response.json();
+const toJSON = (response: Response) => response.json();
 
-const fetchIt = (url) => Task((rej, res) => fetch(url).then(toJSON).then(res).catch(rej));
+const fetchIt = (url: string) => Task((rej, res) => fetch(url).then(toJSON).then(res).catch(rej));
 
 const RealEstate3m = {
     getAds: fetchIt,
 };
 
-const getAds = (url) => RealEstate3m.getAds(url).map((json) => json.map(toAdData));
+const getAds = (url: string) => RealEstate3m.getAds(url).map((json: AdDataResponse) => json.map(toAdData));
 
 export { RealEstate3m, getAds };

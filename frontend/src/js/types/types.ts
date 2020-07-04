@@ -215,4 +215,4 @@ const StateT = (M) => {
     return State;
 };
 */
-export { Task /*, Id, TaskT, State, StateT, Last, Fn, FnT, Either, EitherT, IO, Reducer*/ };
+export { Task };
