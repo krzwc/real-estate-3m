@@ -1,4 +1,4 @@
-import { mapArrayToHtml, matchKeywordAndChangeBackground, generateHtml, displayData, filterMarkerPropeties, filterMarkers, filterLocations } from '../utils/panelUtils' 
+import { mapArrayToHtml, matchKeywordAndChangeBackground, generateHtml, displayData, filterLocations } from '../utils/panelUtils'
 
 const item = {
     "id": "62386593",
@@ -87,18 +87,6 @@ test('generateHtml function works with locWithSelection', () => {
 test('displayData joins html correctly', () => {
   const html = displayData(data)
   expect(html).toMatch(`<li>\r\n<span class=\"location\">`)
-})
-
-test('filterMarkerPropeties works correctly', () => {
-  const result = filterMarkerPropeties(mMA)
-  expect(result).toContain('yy');
-  expect(result).not.toContain('62427854');
-})
-
-test('filterMarkers works correctly', () => {
-  const result = filterMarkers(mMA, mA)
-  expect(result).toEqual([{"id": "62427854", "marker": "yy"}])
-  expect(result).not.toEqual([{"id": "62428125", "marker": "xx"}])
 })
 
 test('filterLocations works correctly', () => {

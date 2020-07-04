@@ -1,31 +1,13 @@
-import { setNullOnAllMarkers, setMapOnMarkers } from "./mapUtils";
 import mapboxgl from "mapbox-gl";
 
-//func displaying all matches in the location array based on a provided phrase
-export const matchAndDisplayLocations = (data, e, suggestions) => {
-  const matchArray = filterLocations(e.target.value, data);
-  // const displayMarkerArr = filterMarkers(mMA, matchArray);
-  suggestions.innerHTML = mapArrayToHtml(matchArray, e.target.value);
+export const mapToMarkers = (locationArr, map) => locationArr.map((loc) => {
+  const el = document.createElement('div');
+  el.className = 'marker';
 
-  // setNullOnAllMarkers(filterMarkerPropeties(mMA));
-  // setMapOnMarkers(filterMarkerPropeties(displayMarkerArr), map);
-
-  // console.log(matchArray)
-  document.querySelectorAll('.marker').forEach((marker) => marker.remove());
-  const markers = [];
-  matchArray.forEach((loc) => {
-    const el = document.createElement('div');
-    el.className = 'marker';
-
-    markers.push(new mapboxgl.Marker(el)
-        .setLngLat([loc.lon, loc.lat])
-        .addTo(map)
-    )})
-
-  console.log(matchArray)
-
-  return matchArray
-};
+  return new mapboxgl.Marker(el)
+          .setLngLat([loc.lon, loc.lat])
+          .addTo(map)
+  });
 
 export const mapArrayToHtml = (arr, keyword) => {
   let html = [];
@@ -62,20 +44,6 @@ export const displayData = data => {
   const html = [];
   data.map(item => generateHtml(html, item));
   return html.join("\r\n");
-};
-
-export const filterMarkerPropeties = array =>
-  array.map(item => {
-    return item.marker;
-  });
-
-//func filtering out all targetArray indices not present in locationArray
-export const filterMarkers = (targetArray, locationArray) => {
-  //taking into account only id property
-  const locFilter = locationArray.map(item => {
-    return item.id;
-  });
-  return targetArray.filter(item => locFilter.includes(item.id));
 };
 
 //func filtering out all locations but the ones that the regex applies to

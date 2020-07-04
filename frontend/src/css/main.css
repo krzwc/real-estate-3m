@@ -119,6 +119,7 @@ span.price {
 
 .marker {
   /*background-image: url('data:image/svg+xml;charset=UTF-8,<svg width="50" height="50" viewBox="0 0 50 50"><circle cx="50" cy="50" r="45" stroke="#000" stroke-width="3" fill="none"/></svg>');*/
+  opacity: 0.4;
   background-color: red;
   background-size: cover;
   width: 50px;
