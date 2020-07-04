@@ -33,7 +33,6 @@ class App {
                 this.searchInput.addEventListener('keyup', ({ target: { value: inputValue }}: HTMLElementEvent<HTMLInputElement>) => {
                     const matchArray = filterLocations(inputValue, locations);
                     this.suggestions.innerHTML = mapArrayToHtml(matchArray, inputValue);
-                    console.log(mapArrayToHtml(matchArray, inputValue))
 
                     document.querySelectorAll('.marker').forEach((marker) => marker.remove());
 

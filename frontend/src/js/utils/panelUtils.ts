@@ -1,6 +1,8 @@
 import mapboxgl from "mapbox-gl";
-import { compose, join, map, flatten } from 'ramda';
-import { AdDataResponse, AdDataType } from '../interfaces';
+import {compose, join, map, flatten} from 'ramda';
+import {upperFirst, words} from 'lodash-es';
+import {AdDataResponse, AdDataType} from '../interfaces';
+import {invokableCompose} from '../model';
 
 const mapToMarkers = (locationArr: AdDataResponse, map: mapboxgl.Map) => locationArr.map((loc) => {
     const el = document.createElement('div');
@@ -8,6 +10,8 @@ const mapToMarkers = (locationArr: AdDataResponse, map: mapboxgl.Map) => locatio
 
     return new mapboxgl.Marker(el)
         .setLngLat([loc.lon, loc.lat])
+        .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
+            .setHTML(createPopupContent(loc)))
         .addTo(map)
 });
 
@@ -54,4 +58,29 @@ const filterLocations = (wordToMatch: string, locations: AdDataResponse) => loca
     return location.loc.match(regex);
 });
 
-export { mapToMarkers, mapArrayToHtml, matchKeywordAndChangeBackground, generateHtml, displayData, filterLocations }
+const createPopupContent = compose(
+    (str) => '<div>' + str + '</div>',
+    (item: AdDataType) => Object.keys(item).map(key => {
+        if (key === "id") {
+            return `<p><a href="${item["url"]}" target="_blank">Id: ${item["id"]}</a></p>`
+        }
+        if (key === "url") {
+            return
+        }
+        if (key === "loc") {
+            const loc = item["loc"]
+            return `<p>${invokableCompose(join(" "), map(upperFirst), words)(loc)}</p>`
+        }
+        return `<p>${upperFirst(item[key])}</p>`
+    }).join('')
+);
+
+export {
+    mapToMarkers,
+    mapArrayToHtml,
+    matchKeywordAndChangeBackground,
+    generateHtml,
+    displayData,
+    filterLocations,
+    createPopupContent
+}
