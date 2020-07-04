@@ -56,4 +56,4 @@ Task.fromPromised = (fn: funcWithSpreadableArgs) => (...args: any[]) =>
             .catch(rej),
     );
 
-export { Task };
+export { Task, func };
