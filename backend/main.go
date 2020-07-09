@@ -2,7 +2,6 @@ package main
 
 import (
 	"encoding/json"
-	"fmt"
 	"github.com/gorilla/mux"
 	"io/ioutil"
 	"log"
@@ -19,6 +18,8 @@ type AdData struct {
 	Rooms string  `json:"rooms"`
 	M2    string  `json:"m2"`
 	Floor string  `json:"floor"`
+	Lon   float64 `json:"lon"`
+	Lat	  float64 `json:"lat"`
 }
 
 type AdDataNodes struct {
@@ -26,16 +27,29 @@ type AdDataNodes struct {
 }
 
 type SingleAttr struct {
-	ObjectID   string
-	SingleLine string
+	ObjectID   string `json:"OBJECTID"`
+	SingleLine string `json:"SingleLine"`
 }
 
 type Attributes struct {
-	Attributes SingleAttr
+	Attributes SingleAttr `json:"attributes"`
 }
 
 type Records struct {
-	Records []Attributes
+	Records []Attributes `json:"records"`
+}
+
+type Coordinates struct {
+	X float64 `json:"x"`
+	Y float64 `json:"y"`
+}
+
+type Location struct {
+	Location Coordinates `json:"location"`
+}
+
+type ResponseBody struct {
+	Locations []Location `json:"locations"`
 }
 
 func get(w http.ResponseWriter, r *http.Request) {
@@ -56,15 +70,33 @@ func get(w http.ResponseWriter, r *http.Request) {
 	}
 	marshaledRecords, err := json.Marshal(records)
 	if err != nil {
-			fmt.Println(err)
+			log.Fatal(err)
 			return
 		}
  	encodedRecords := url.QueryEscape(string(marshaledRecords))
 	URL := "https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/geocodeAddresses?addresses=" + encodedRecords + "&f=pjson&token=" + token
 
-	fmt.Println(URL)
+	resp, err := http.Get(URL)
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer resp.Body.Close()
+	if resp.StatusCode == http.StatusOK {
+		bodyBytes, err := ioutil.ReadAll(resp.Body)
+		if err != nil {
+			log.Fatal(err)
+		}
 
-	//resp, err := http.Get("http://example.com/")
+		var bodyData ResponseBody
+		_ = json.Unmarshal([]byte(bodyBytes), &bodyData)
+
+		//fmt.Println(bodyData)
+		for i := range data.Data {
+			data.Data[i].Lon = bodyData.Locations[i].Location.X
+			data.Data[i].Lat = bodyData.Locations[i].Location.Y
+		}
+		//fmt.Println(data.Data)
+	}
 
 	b, err := json.Marshal(data.Data)
 	if err != nil {
