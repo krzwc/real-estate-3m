@@ -1,14 +1,18 @@
 package main
 
 import (
-	"encoding/json"
+	"context"
 	"fmt"
 	"github.com/gocolly/colly/v2"
 	"github.com/gocolly/colly/v2/queue"
-	"io/ioutil"
+	/*"io/ioutil"
+	"encoding/json"*/
 	"log"
 	"strconv"
 	"strings"
+
+	"go.mongodb.org/mongo-driver/mongo"
+	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
 type AdData struct {
@@ -77,6 +81,7 @@ func main() {
 		q.Run(c)
 		data.Data = adData
 
+		/*//save to json file
 		PATH := "../backend/assets/scrap3m.json"
 
 		marshaledData, err := json.MarshalIndent(data, "", " ")
@@ -84,6 +89,23 @@ func main() {
 			log.Fatal(err)
 			return
 		}
-		_ = ioutil.WriteFile(PATH, marshaledData, 0644)
+		_ = ioutil.WriteFile(PATH, marshaledData, 0644)*/
+
+		clientOptions := options.Client().ApplyURI("mongodb://root:password@localhost:27017/")
+		client, err := mongo.Connect(context.TODO(), clientOptions)
+		if err != nil {
+			log.Fatal(err)
+		}
+		err = client.Ping(context.TODO(), nil)
+		if err != nil {
+			log.Fatal(err)
+		}
+
+		collection := client.Database("real-estate-3m").Collection("ads")
+		insertResult, err := collection.InsertOne(context.TODO(), data)
+		if err != nil {
+			log.Fatal(err)
+		}
+		fmt.Println("Inserted a single document: ", insertResult.InsertedID)
 	}
 }
