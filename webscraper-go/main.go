@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"github.com/gocolly/colly/v2"
 	"github.com/gocolly/colly/v2/queue"
+	"io/ioutil"
 	"log"
-	"os"
 	"strconv"
 	"strings"
 )
@@ -19,8 +19,6 @@ type AdData struct {
 	Rooms string  `json:"rooms"`
 	M2    string  `json:"m2"`
 	Floor string  `json:"floor"`
-	Lon   float64 `json:"lon"`
-	Lat	  float64 `json:"lat"`
 }
 
 type Data struct {
@@ -40,14 +38,6 @@ func getTotal(url string) (int, error) {
 	c.Visit(url)
 
 	return total, error
-}
-
-func fileExists(filename string) bool {
-	info, err := os.Stat(filename)
-	if os.IsNotExist(err) {
-		return false
-	}
-	return !info.IsDir()
 }
 
 func main() {
@@ -78,6 +68,8 @@ func main() {
 			adData = append(adData, ad)
 		})
 
+		total = 1
+
 		for pageIndex := 0; pageIndex <= total; pageIndex++ {
 			q.AddURL(URL + fmt.Sprintf("%d", pageIndex))
 		}
@@ -85,31 +77,13 @@ func main() {
 		q.Run(c)
 		data.Data = adData
 
-		fmt.Println(data)
-
 		PATH := "../backend/assets/scrap3m.json"
 
-		var file *os.File
-		var fileErr error
-
-		if fileExists(PATH) {
-		} else {
-			file, fileErr = os.Create(PATH)
-			if fileErr != nil {
-				log.Fatal(fileErr)
-			}
-		}
-		defer file.Close()
-
-		marshaledData, err := json.Marshal(data)
+		marshaledData, err := json.MarshalIndent(data, "", " ")
 		if err != nil {
 			log.Fatal(err)
 			return
 		}
-		_, err = file.Write(marshaledData)
-		if err != nil {
-			log.Fatal(err)
-			return
-		}
+		_ = ioutil.WriteFile(PATH, marshaledData, 0644)
 	}
 }

@@ -1,184 +1,184 @@
 {
-  "data": [
-    {
-      "id": "62802538",
-      "url": "https://dom.trojmiasto.pl/nieruchomosci-rynek-wtorny/3-pokoje-wrzeszcz5-minut-do-politechniki-ogl62802538.html",
-      "loc": "gda\u0144sk wrzeszcz jana sobieskiego",
-      "price": "Cena: 429 000 z\u0142( 9 750 z\u0142/m2 )",
-      "rooms": "3 pok.",
-      "m2": "44 m2",
-      "floor": "1 pi\u0119tro"
-    },
-    {
-      "id": "62849455",
-      "url": "https://dom.trojmiasto.pl/nieruchomosci-rynek-wtorny/apartament-w-centrum-gdanska-rajska-8-ogl62849455.html",
-      "loc": "gda\u0144sk \u015br\u00f3dmie\u015bcie rajska",
-      "price": "Cena: 790 000 z\u0142( 15 192 z\u0142/m2 )",
-      "rooms": "2 pok.",
-      "m2": "52 m2",
-      "floor": "1 pi\u0119tro"
-    },
-    {
-      "id": "62442616",
-      "url": "https://dom.trojmiasto.pl/nieruchomosci-rynek-wtorny/ekskluzywny-apartametnajladniejsze-osiedle-2017r-ogl62442616.html",
-      "loc": "gda\u0144sk \u015br\u00f3dmie\u015bcie stara stocznia",
-      "price": "Cena: 829 000 z\u0142( 18 022 z\u0142/m2 )",
-      "rooms": "2 pok.",
-      "m2": "46 m2",
-      "floor": "4 pi\u0119tro"
-    },
-    {
-      "id": "62461433",
-      "url": "https://dom.trojmiasto.pl/nieruchomosci-rynek-wtorny/ekskluzywny-apartamentnajladniejsze-osiedle-2017-ogl62461433.html",
-      "loc": "gda\u0144sk \u015br\u00f3dmie\u015bcie stara stocznia",
-      "price": "Cena: 799 000 z\u0142( 17 000 z\u0142/m2 )",
-      "rooms": "2 pok.",
-      "m2": "47 m2",
-      "floor": "2 pi\u0119tro"
-    },
-    {
-      "id": "62757656",
-      "url": "https://dom.trojmiasto.pl/nieruchomosci-rynek-wtorny/dwupokojowe-mieszkanie-w-centrum-gdanska-50m2-ogl62757656.html",
-      "loc": "gda\u0144sk d\u0142ugie ogrody \u0142\u0105kowa",
-      "price": "Cena: 495 000 z\u0142( 9 900 z\u0142/m2 )",
-      "rooms": "2 pok.",
-      "m2": "50 m2",
-      "floor": "2 pi\u0119tro"
-    },
-    {
-      "id": "62821319",
-      "url": "https://dom.trojmiasto.pl/nieruchomosci-rynek-wtorny/2-pokoje-na-starym-miescie-ogl62821319.html",
-      "loc": "gda\u0144sk d\u0142ugie ogrody \u015bw. barbary",
-      "price": "Cena: 379 000 z\u0142( 8 621 z\u0142/m2 )",
-      "rooms": "2 pok.",
-      "m2": "43.96 m2",
-      "floor": "1 pi\u0119tro"
-    },
-    {
-      "id": "62243174",
-      "url": "https://dom.trojmiasto.pl/nieruchomosci-rynek-wtorny/apartament-blisko-morza-2-pokoje-ogl62243174.html",
-      "loc": "gda\u0144sk brze\u017ano nadmorski dw\u00f3r",
-      "price": "Cena: 705 000 z\u0142( 14 842 z\u0142/m2 )",
-      "rooms": "2 pok.",
-      "m2": "47.5 m2",
-      "floor": "parter"
-    },
-    {
-      "id": "62817989",
-      "url": "https://dom.trojmiasto.pl/nieruchomosci-rynek-wtorny/2-pokoje-na-starym-miescie-ogl62817989.html",
-      "loc": "gda\u0144sk d\u0142ugie ogrody \u015bw. barbary",
-      "price": "Cena: 379 000 z\u0142( 8 621 z\u0142/m2 )",
-      "rooms": "2 pok.",
-      "m2": "43.96 m2",
-      "floor": "1 pi\u0119tro"
-    },
-    {
-      "id": "62757890",
-      "url": "https://dom.trojmiasto.pl/nieruchomosci-rynek-wtorny/apartament-z-widokiem-na-kosciol-mariacki-ogl62757890.html",
-      "loc": "gda\u0144sk \u015br\u00f3dmie\u015bcie grobla i",
-      "price": "Cena: 849 000 z\u0142( 16 598 z\u0142/m2 )",
-      "rooms": "3 pok.",
-      "m2": "51.15 m2",
-      "floor": "2 pi\u0119tro"
-    },
-    {
-      "id": "62858988",
-      "url": "https://dom.trojmiasto.pl/nieruchomosci-rynek-wtorny/sloneczne-mieszkanie-dla-kazdego-ogl62858988.html",
-      "loc": "gda\u0144sk brze\u017ano korzeniowskiego",
-      "price": "Cena: 319 000 z\u0142( 7 089 z\u0142/m2 )",
-      "rooms": "2 pok.",
-      "m2": "45 m2",
-      "floor": "1 pi\u0119tro"
-    },
-    {
-      "id": "62822041",
-      "url": "https://dom.trojmiasto.pl/nieruchomosci-rynek-wtorny/2-pokojowy-apartament-na-nadmorskim-dworze-ogl62822041.html",
-      "loc": "gda\u0144sk brze\u017ano nadmorski dw\u00f3r",
-      "price": "Cena: 760 000 z\u0142( 13 983 z\u0142/m2 )",
-      "rooms": "2 pok.",
-      "m2": "54.35 m2",
-      "floor": "1 pi\u0119tro"
-    },
-    {
-      "id": "62849014",
-      "url": "https://dom.trojmiasto.pl/nieruchomosci-rynek-wtorny/gdansk-wrzeszcz-grunwaldzka-ogl62849014.html",
-      "loc": "gda\u0144sk wrzeszcz grunwaldzka",
-      "price": "Cena: 410 000 z\u0142( 8 230 z\u0142/m2 )",
-      "rooms": "2 pok.",
-      "m2": "49.82 m2",
-      "floor": "2 pi\u0119tro"
-    },
-    {
-      "id": "62852653",
-      "url": "https://dom.trojmiasto.pl/nieruchomosci-rynek-wtorny/mieszkanie-42-m2-gdansk-wrzeszcz-slowackiego-57-ogl62852653.html",
-      "loc": "gda\u0144sk wrzeszcz s\u0142owackiego 57e",
-      "price": "Cena: 340 000 z\u0142( 8 095 z\u0142/m2 )",
-      "rooms": "2 pok.",
-      "m2": "42 m2",
-      "floor": "3 pi\u0119tro"
-    },
-    {
-      "id": "62547586",
-      "url": "https://dom.trojmiasto.pl/nieruchomosci-rynek-wtorny/mieszkanie-3-pok-w-centrum-blok-z-winda-ogl62547586.html",
-      "loc": "gda\u0144sk \u015br\u00f3dmie\u015bcie podwale przedmiejskie",
-      "price": "Cena: 450 000 z\u0142( 8 583 z\u0142/m2 )",
-      "rooms": "3 pok.",
-      "m2": "52.43 m2",
-      "floor": "4 pi\u0119tro"
-    },
-    {
-      "id": "62708726",
-      "url": "https://dom.trojmiasto.pl/nieruchomosci-rynek-wtorny/apartament-w-centrum-bastion-walowa-ogl62708726.html",
-      "loc": "gda\u0144sk \u015br\u00f3dmie\u015bcie wa\u0142owa",
-      "price": "Cena: 559 000 z\u0142( 12 422 z\u0142/m2 )",
-      "rooms": "2 pok.",
-      "m2": "45 m2",
-      "floor": "4 pi\u0119tro"
-    },
-    {
-      "id": "62849728",
-      "url": "https://dom.trojmiasto.pl/nieruchomosci-rynek-wtorny/szukasz-mieszkania-z-dusza-przy-starym-miescie-ogl62849728.html",
-      "loc": "gda\u0144sk dolne miasto jask\u00f3\u0142cza",
-      "price": "Cena: 410 000 z\u0142( 7 930 z\u0142/m2 )",
-      "rooms": "3 pok.",
-      "m2": "51.7 m2",
-      "floor": "1 pi\u0119tro"
-    },
-    {
-      "id": "62715095",
-      "url": "https://dom.trojmiasto.pl/nieruchomosci-rynek-wtorny/idealne-2-pokojowe-mieszkanie-na-starowce-ogl62715095.html",
-      "loc": "gda\u0144sk \u015br\u00f3dmie\u015bcie szeroka",
-      "price": "Cena: 575 000 z\u0142( 11 209 z\u0142/m2 )",
-      "rooms": "2 pok.",
-      "m2": "51.3 m2",
-      "floor": "2 pi\u0119tro"
-    },
-    {
-      "id": "62723003",
-      "url": "https://dom.trojmiasto.pl/nieruchomosci-rynek-wtorny/urokliwe-mieszkanie-gdansk-rajska-47-m2-ogl62723003.html",
-      "loc": "gda\u0144sk \u015br\u00f3dmie\u015bcie rajska",
-      "price": "Cena: 555 000 z\u0142( 11 809 z\u0142/m2 )",
-      "rooms": "2 pok.",
-      "m2": "47 m2",
-      "floor": "3 pi\u0119tro"
-    },
-    {
-      "id": "62799730",
-      "url": "https://dom.trojmiasto.pl/nieruchomosci-rynek-wtorny/nowa-cena-okazja-ogl62799730.html",
-      "loc": "gda\u0144sk d\u0142ugie ogrody",
-      "price": "Cena: 327 500 z\u0142( 7 120 z\u0142/m2 )",
-      "rooms": "2 pok.",
-      "m2": "46 m2",
-      "floor": "parter"
-    },
-    {
-      "id": "62867686",
-      "url": "https://dom.trojmiasto.pl/nieruchomosci-rynek-wtorny/2-pokoje-historyczne-stare-miasto-ogl62867686.html",
-      "loc": "gda\u0144sk \u015br\u00f3dmie\u015bcie krosna",
-      "price": "Cena: 619 000 z\u0142( 12 380 z\u0142/m2 )",
-      "rooms": "2 pok.",
-      "m2": "50 m2",
-      "floor": "2 pi\u0119tro"
-    }
-  ]
+ "data": [
+  {
+   "id": "63501791",
+   "url": "https://dom.trojmiasto.pl/nieruchomosci-rynek-wtorny/mieszkanie-gdansk-brzezno-425000-zl-ogl63501791.html",
+   "loc": "gdańsk brzeźno walecznych gdańsk brzeźno",
+   "price": "Cena: 425 000 zł ( 8 466 zł/m2 )",
+   "rooms": "2 pok.",
+   "m2": "50.2 m2",
+   "floor": "4 piętro"
+  },
+  {
+   "id": "63557915",
+   "url": "https://dom.trojmiasto.pl/nieruchomosci-rynek-wtorny/browar-gdanski-wykonczone-2x-hala-gar-balkon-ogl63557915.html",
+   "loc": "gdańsk wrzeszcz jana kilińskiego gdańsk wrzeszcz",
+   "price": "Cena: 660 000 zł ( 12 429 zł/m2 )",
+   "rooms": "2 pok.",
+   "m2": "53.1 m2",
+   "floor": "1 piętro"
+  },
+  {
+   "id": "63407286",
+   "url": "https://dom.trojmiasto.pl/nieruchomosci-rynek-wtorny/centrum-3-pokojegarderoba-wysoki-standard-ogl63407286.html",
+   "loc": "gdańsk śródmieście rajska gdańsk śródmieście",
+   "price": "Cena: 765 000 zł ( 14 254 zł/m2 )",
+   "rooms": "3 pok.",
+   "m2": "53.67 m2",
+   "floor": "3 piętro"
+  },
+  {
+   "id": "63374001",
+   "url": "https://dom.trojmiasto.pl/nieruchomosci-rynek-wtorny/apartament-2-pokoje-centrum-blisko-starowki-ogl63374001.html",
+   "loc": "gdańsk śródmieście jana heweliusza gdańsk śródmieście",
+   "price": "Cena: 599 990 zł ( 13 115 zł/m2 )",
+   "rooms": "2 pok.",
+   "m2": "45.75 m2",
+   "floor": "2 piętro"
+  },
+  {
+   "id": "63445356",
+   "url": "https://dom.trojmiasto.pl/nieruchomosci-rynek-wtorny/2-oddzielne-pokoje-blisko-starowki-piekny-widok-ogl63445356.html",
+   "loc": "gdańsk długie ogrody głęboka gdańsk długie ogrody",
+   "price": "Cena: 460 000 zł ( 9 020 zł/m2 )",
+   "rooms": "2 pok.",
+   "m2": "51 m2",
+   "floor": "8 piętro"
+  },
+  {
+   "id": "63518426",
+   "url": "https://dom.trojmiasto.pl/nieruchomosci-rynek-wtorny/2-oddzielne-pokoje-wrzeszcz-po-remoncie-ogl63518426.html",
+   "loc": "gdańsk wrzeszcz konrada leczkowa gdańsk wrzeszcz",
+   "price": "Cena: 409 000 zł ( 9 669 zł/m2 )",
+   "rooms": "2 pok.",
+   "m2": "42.3 m2",
+   "floor": "9 piętro"
+  },
+  {
+   "id": "63232692",
+   "url": "https://dom.trojmiasto.pl/nieruchomosci-rynek-wtorny/atrakcyjne-2-pokoje-blisko-starowki-ogl63232692.html",
+   "loc": "gdańsk długie ogrody wygon gdańsk długie ogrody",
+   "price": "Cena: 399 000 zł ( 9 068 zł/m2 )",
+   "rooms": "2 pok.",
+   "m2": "44 m2",
+   "floor": "parter"
+  },
+  {
+   "id": "63244739",
+   "url": "https://dom.trojmiasto.pl/nieruchomosci-rynek-wtorny/2-pokoje-w-sercu-gdanska-ogl63244739.html",
+   "loc": "gdańsk śródmieście węglarska gdańsk śródmieście",
+   "price": "Cena: 549 000 zł ( 12 309 zł/m2 )",
+   "rooms": "2 pok.",
+   "m2": "44.6 m2",
+   "floor": "1 piętro"
+  },
+  {
+   "id": "63553157",
+   "url": "https://dom.trojmiasto.pl/nieruchomosci-rynek-wtorny/mieszkanie-gdansk-wrzeszcz-ogl63553157.html",
+   "loc": "gdańsk wrzeszcz antoniego słonimskiego gdańsk wrzeszcz",
+   "price": "Cena: 599 900 zł ( 13 603 zł/m2 )",
+   "rooms": "2 pok.",
+   "m2": "44.1 m2",
+   "floor": "parter"
+  },
+  {
+   "id": "63503296",
+   "url": "https://dom.trojmiasto.pl/nieruchomosci-rynek-wtorny/3-pokoje-po-kapitalnym-remoncie-wrzeszcz-ogl63503296.html",
+   "loc": "gdańsk wrzeszcz bolesława chrobrego gdańsk wrzeszcz",
+   "price": "Cena: 499 000 zł ( 10 895 zł/m2 )",
+   "rooms": "3 pok.",
+   "m2": "45.8 m2",
+   "floor": "parter"
+  },
+  {
+   "id": "63550426",
+   "url": "https://dom.trojmiasto.pl/nieruchomosci-rynek-wtorny/centrum-miasta-3-pokoje-wysoki-standard-ogl63550426.html",
+   "loc": "gdańsk śródmieście łagiewniki gdańsk śródmieście",
+   "price": "Cena: 599 000 zł ( 11 909 zł/m2 )",
+   "rooms": "3 pok.",
+   "m2": "50.3 m2",
+   "floor": "2 piętro"
+  },
+  {
+   "id": "63548948",
+   "url": "https://dom.trojmiasto.pl/nieruchomosci-rynek-wtorny/luksusowy-apartament-nad-motlawa-granaria-ogl63548948.html",
+   "loc": "gdańsk śródmieście chmielna gdańsk śródmieście",
+   "price": "Cena: 995 000 zł ( 23 690 zł/m2 )",
+   "rooms": "2 pok.",
+   "m2": "42 m2",
+   "floor": "3 piętro"
+  },
+  {
+   "id": "63188419",
+   "url": "https://dom.trojmiasto.pl/nieruchomosci-rynek-wtorny/z-widokiem-na-kosciol-mariacki-stare-miasto-ogl63188419.html",
+   "loc": "gdańsk śródmieście grobla i gdańsk śródmieście",
+   "price": "Cena: 878 000 zł ( 16 979 zł/m2 )",
+   "rooms": "3 pok.",
+   "m2": "51.71 m2",
+   "floor": "2 piętro"
+  },
+  {
+   "id": "63260870",
+   "url": "https://dom.trojmiasto.pl/nieruchomosci-rynek-wtorny/wrzeszcz-3-oddzielne-pokoje-po-remoncie-ogl63260870.html",
+   "loc": "gdańsk wrzeszcz juliusza słowackiego gdańsk wrzeszcz",
+   "price": "Cena: 495 000 zł ( 9 167 zł/m2 )",
+   "rooms": "3 pok.",
+   "m2": "54 m2",
+   "floor": "3 piętro"
+  },
+  {
+   "id": "63538636",
+   "url": "https://dom.trojmiasto.pl/nieruchomosci-rynek-wtorny/3-minuty-do-morzanowe-w-pelniwyposazone-ogl63538636.html",
+   "loc": "gdańsk brzeźno karola chodkiewicza gdańsk brzeźno",
+   "price": "Cena: 650 000 zł ( 13 830 zł/m2 )",
+   "rooms": "2 pok.",
+   "m2": "47 m2",
+   "floor": "1 piętro"
+  },
+  {
+   "id": "62804910",
+   "url": "https://dom.trojmiasto.pl/nieruchomosci-rynek-wtorny/apartament-przy-starym-miescie-widok-na-rzeke-obok-parku-ogl62804910.html",
+   "loc": "gdańsk śródmieście toruńska 18b gdańsk śródmieście",
+   "price": "Cena: 699 000 zł ( 15 886 zł/m2 )",
+   "rooms": "2 pok.",
+   "m2": "44 m2",
+   "floor": "4 piętro"
+  },
+  {
+   "id": "63422112",
+   "url": "https://dom.trojmiasto.pl/nieruchomosci-rynek-wtorny/2-pokoje-w-cenie-piwnica-i-strych-na-wylacznosc-ogl63422112.html",
+   "loc": "gdańsk wrzeszcz juliana niemcewicza gdańsk wrzeszcz",
+   "price": "Cena: 449 000 zł ( 10 237 zł/m2 )",
+   "rooms": "2 pok.",
+   "m2": "43.86 m2",
+   "floor": "2 piętro"
+  },
+  {
+   "id": "63463955",
+   "url": "https://dom.trojmiasto.pl/nieruchomosci-rynek-wtorny/tylko-u-nas-mieszkanie-w-sercu-starego-miasta-ogl63463955.html",
+   "loc": "gdańsk śródmieście tkacka gdańsk śródmieście",
+   "price": "Cena: 699 000 zł ( 12 944 zł/m2 )",
+   "rooms": "2 pok.",
+   "m2": "54 m2",
+   "floor": "2 piętro"
+  },
+  {
+   "id": "63512828",
+   "url": "https://dom.trojmiasto.pl/nieruchomosci-rynek-wtorny/hit-cenowy-wrzeszcz-dostepny-od-zaraz-ogl63512828.html",
+   "loc": "gdańsk wrzeszcz jana kochanowskiego gdańsk wrzeszcz",
+   "price": "Cena: 459 000 zł ( 8 345 zł/m2 )",
+   "rooms": "2 pok.",
+   "m2": "55 m2",
+   "floor": "parter"
+  },
+  {
+   "id": "63537653",
+   "url": "https://dom.trojmiasto.pl/nieruchomosci-rynek-wtorny/prestizowa-inwestycja-w-centrum-gdanska-ogl63537653.html",
+   "loc": "gdańsk długie ogrody długie ogrody gdańsk długie ogrody",
+   "price": "Cena: 530 000 zł ( 12 062 zł/m2 )",
+   "rooms": "2 pok.",
+   "m2": "43.94 m2",
+   "floor": "1 piętro"
+  }
+ ]
 }
