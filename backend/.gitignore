@@ -1,0 +1,5 @@
+.idea
+extra_vars.yml
+extra_vars.json
+.venv
+.vscode

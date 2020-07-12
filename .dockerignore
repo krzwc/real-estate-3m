@@ -1,0 +1,15 @@
+__pycache__
+.dockerigonore
+.gitignore
+.git
+**/venv
+Dockerfile
+.gitlab-ci.yml
+.coverage
+.coverage.*
+.idea
+.vscode
+.pytest_cache
+ansible/inventory
+ansible/images
+**/node_modules

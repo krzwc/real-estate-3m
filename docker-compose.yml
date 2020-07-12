@@ -1,0 +1,44 @@
+---
+version: '3'
+
+services:
+  db:
+    image: mongo:4.2.8
+    volumes:
+      - dbdata:/data/db
+    ports:
+      - 27017:27017
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: password
+
+  webscraper:
+    build:
+      context: .
+      dockerfile: docker/webscraper/Dockerfile
+    depends_on:
+      - db
+
+  backend:
+    build:
+      context: .
+      dockerfile: docker/backend/Dockerfile
+    ports:
+      - "8080:8080"
+    depends_on:
+      - webscraper
+
+  frontend:
+    build:
+      context: .
+      dockerfile: docker/frontend/Dockerfile
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules/
+    ports:
+      - "5000:5000"
+    depends_on:
+      - backend
+
+volumes:
+  dbdata:

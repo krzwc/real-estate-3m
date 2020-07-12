@@ -102,10 +102,9 @@ func main() {
 		}
 
 		collection := client.Database("real-estate-3m").Collection("ads")
-		insertResult, err := collection.InsertOne(context.TODO(), data)
+		_, err = collection.InsertOne(context.TODO(), data)
 		if err != nil {
 			log.Fatal(err)
 		}
-		fmt.Println("Inserted a single document: ", insertResult.InsertedID)
 	}
 }
