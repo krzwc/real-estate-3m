@@ -18,6 +18,8 @@ services:
       dockerfile: docker/webscraper/Dockerfile
     depends_on:
       - db
+    environment:
+      - MONGO_CONNECTION_STRING=mongodb://root:password@db:27017
 
   backend:
     build:
@@ -26,7 +28,10 @@ services:
     ports:
       - "8080:8080"
     depends_on:
+      - db
       - webscraper
+    environment:
+      - MONGO_CONNECTION_STRING=mongodb://root:password@db:27017
 
   frontend:
     build:
@@ -38,7 +43,9 @@ services:
     ports:
       - "5000:5000"
     depends_on:
+      - webscraper
       - backend
+
 
 volumes:
   dbdata:

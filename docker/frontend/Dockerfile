@@ -4,6 +4,6 @@ WORKDIR /app
 COPY ./frontend/package*.json ./
 RUN npm ci -qy
 COPY ./frontend .
-EXPOSE 3000
+EXPOSE 5000
 CMD [ "npm", "run", "start" ]
 

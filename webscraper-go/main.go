@@ -10,6 +10,7 @@ import (
 	"log"
 	"strconv"
 	"strings"
+	"os"
 
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
@@ -91,7 +92,11 @@ func main() {
 		}
 		_ = ioutil.WriteFile(PATH, marshaledData, 0644)*/
 
-		clientOptions := options.Client().ApplyURI("mongodb://root:password@localhost:27017/")
+		DB_CONNECTION_STRING := os.Getenv("MONGO_CONNECTION_STRING")
+		if DB_CONNECTION_STRING == "" {
+			DB_CONNECTION_STRING = "mongodb://root:password@localhost:27017/"
+		}
+		clientOptions := options.Client().ApplyURI(DB_CONNECTION_STRING)
 		client, err := mongo.Connect(context.TODO(), clientOptions)
 		if err != nil {
 			log.Fatal(err)

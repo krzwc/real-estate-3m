@@ -3,11 +3,13 @@ package main
 import (
 	"context"
 	"encoding/json"
+	"fmt"
 	"github.com/gorilla/mux"
 	"io/ioutil"
 	"log"
 	"net/http"
 	"net/url"
+	"os"
 	"strconv"
 
 	"go.mongodb.org/mongo-driver/bson"
@@ -58,7 +60,11 @@ type ResponseBody struct {
 }
 
 func get(w http.ResponseWriter, r *http.Request) {
-	clientOptions := options.Client().ApplyURI("mongodb://root:password@localhost:27017/")
+	DB_CONNECTION_STRING := os.Getenv("MONGO_CONNECTION_STRING")
+	if DB_CONNECTION_STRING == "" {
+		DB_CONNECTION_STRING = "mongodb://root:password@localhost:27017/"
+	}
+	clientOptions := options.Client().ApplyURI(DB_CONNECTION_STRING)
 	client, err := mongo.Connect(context.TODO(), clientOptions)
 	if err != nil {
 		log.Fatal(err)
@@ -158,4 +164,5 @@ func main() {
 	r.HandleFunc("/data", get).Methods(http.MethodGet)
 	r.HandleFunc("", notFound)
 	log.Fatal(http.ListenAndServe(":8080", r))
+	fmt.Println("Backend listening on port 8080")
 }
