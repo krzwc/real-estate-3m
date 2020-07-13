@@ -3,7 +3,6 @@ package main
 import (
 	"context"
 	"encoding/json"
-	"fmt"
 	"github.com/gorilla/mux"
 	"io/ioutil"
 	"log"
@@ -60,24 +59,25 @@ type ResponseBody struct {
 }
 
 func get(w http.ResponseWriter, r *http.Request) {
+
 	DB_CONNECTION_STRING := os.Getenv("MONGO_CONNECTION_STRING")
 	if DB_CONNECTION_STRING == "" {
 		DB_CONNECTION_STRING = "mongodb://root:password@localhost:27017/"
 	}
 	clientOptions := options.Client().ApplyURI(DB_CONNECTION_STRING)
-	client, err := mongo.Connect(context.TODO(), clientOptions)
+
+	client, err := mongo.Connect(context.TODO(), clientOptions);
 	if err != nil {
 		log.Fatal(err)
 	}
-	err = client.Ping(context.TODO(), nil)
-	if err != nil {
+
+	if err = client.Ping(context.TODO(), nil); err != nil {
 		log.Fatal(err)
 	}
 
 	collection := client.Database("real-estate-3m").Collection("ads")
 	data := AdDataNodes{}
-	err = collection.FindOne(context.TODO(), bson.D{}).Decode(&data)
-	if err != nil {
+	if err = collection.FindOne(context.TODO(), bson.D{}).Decode(&data); err != nil {
 		log.Fatal(err)
 	}
 
@@ -88,7 +88,7 @@ func get(w http.ResponseWriter, r *http.Request) {
 	_ = json.Unmarshal([]byte(file), &data)
 	*/
 
-	token := "EfpuXlCvYMNSZ1Vbn5EZB9jfbNbqvvDqToqfqnq7w6Xlys3gKZV8aE8ixOU2S1NEFsA7aXqZEJO8uaGD66s6RsWeY6WX75WJaobU5WUOfgpc-qFDo-7ntHiX7b03UejUnAiw8ZDjLUNn9H2kcZtSZ73bwVAxtIv1VQc52Nz3CDEMHuJiFGV54pt8aElrxzGXfqw3LAKG0RpAQCBIRBmZ96G5kYr52VA5Dv55sqEcu98."
+	token := "TvVghSLqm_f7a8VBDYBu23JPfDq80QR29lY3twWuylt-IqGNzqE_lOd9AsRIubMrMvV1xZxR_LwslwK_9iO0_FZKesyOfRTtZm3k5-epbGCVN2bXhjH7HLna37lMsqa3nGdg3az2oXkiFnOJRkKa45Rq4NykTdqk0Weag8l1rV29q6nfgz3kJunrK0P9Ndw-yU39Rvz_2JkARSh3YsE9jarolWehGQ375PMmCeOkiYY."
 	var records Records
 	for i, v := range data.Data {
 		singleAttr := SingleAttr{
@@ -106,8 +106,8 @@ func get(w http.ResponseWriter, r *http.Request) {
  	encodedRecords := url.QueryEscape(string(marshaledRecords))
 	URL := "https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/geocodeAddresses?addresses=" + encodedRecords + "&f=pjson&token=" + token
 
-	resp, err := http.Get(URL)
-	if err != nil {
+	var resp *http.Response
+	if resp, err = http.Get(URL); err != nil {
 		log.Fatal(err)
 	}
 	defer resp.Body.Close()
@@ -164,5 +164,4 @@ func main() {
 	r.HandleFunc("/data", get).Methods(http.MethodGet)
 	r.HandleFunc("", notFound)
 	log.Fatal(http.ListenAndServe(":8080", r))
-	fmt.Println("Backend listening on port 8080")
 }
