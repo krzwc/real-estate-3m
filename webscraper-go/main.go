@@ -3,27 +3,29 @@ package main
 import (
 	"context"
 	"fmt"
+
 	"github.com/gocolly/colly/v2"
 	"github.com/gocolly/colly/v2/queue"
+
 	/*"io/ioutil"
 	"encoding/json"*/
 	"log"
+	"os"
 	"strconv"
 	"strings"
-	"os"
 
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
 type AdData struct {
-	Id    string  `json:"id"`
-	Url   string  `json:"url"`
-	Loc   string  `json:"loc"`
-	Price string  `json:"price"`
-	Rooms string  `json:"rooms"`
-	M2    string  `json:"m2"`
-	Floor string  `json:"floor"`
+	Id    string `json:"id"`
+	Url   string `json:"url"`
+	Loc   string `json:"loc"`
+	Price string `json:"price"`
+	Rooms string `json:"rooms"`
+	M2    string `json:"m2"`
+	Floor string `json:"floor"`
 }
 
 type Data struct {
@@ -61,7 +63,7 @@ func main() {
 			&queue.InMemoryQueueStorage{MaxSize: 10000},
 		)
 
-		c.OnHTML("div.ogl-item", func(e *colly.HTMLElement) {
+		c.OnHTML("div.ogloszeniaList__item", func(e *colly.HTMLElement) {
 			var ad AdData
 			ad.Id = e.Attr("data-id")
 			ad.Url = e.ChildAttr(".img-wrap > a", "href")

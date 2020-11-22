@@ -3,13 +3,14 @@ package main
 import (
 	"context"
 	"encoding/json"
-	"github.com/gorilla/mux"
 	"io/ioutil"
 	"log"
 	"net/http"
 	"net/url"
 	"os"
 	"strconv"
+
+	"github.com/gorilla/mux"
 
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
@@ -25,7 +26,7 @@ type AdData struct {
 	M2    string  `json:"m2"`
 	Floor string  `json:"floor"`
 	Lon   float64 `json:"lon"`
-	Lat	  float64 `json:"lat"`
+	Lat   float64 `json:"lat"`
 }
 
 type AdDataNodes struct {
@@ -66,7 +67,7 @@ func get(w http.ResponseWriter, r *http.Request) {
 	}
 	clientOptions := options.Client().ApplyURI(DB_CONNECTION_STRING)
 
-	client, err := mongo.Connect(context.TODO(), clientOptions);
+	client, err := mongo.Connect(context.TODO(), clientOptions)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -88,11 +89,11 @@ func get(w http.ResponseWriter, r *http.Request) {
 	_ = json.Unmarshal([]byte(file), &data)
 	*/
 
-	token := "TvVghSLqm_f7a8VBDYBu23JPfDq80QR29lY3twWuylt-IqGNzqE_lOd9AsRIubMrMvV1xZxR_LwslwK_9iO0_FZKesyOfRTtZm3k5-epbGCVN2bXhjH7HLna37lMsqa3nGdg3az2oXkiFnOJRkKa45Rq4NykTdqk0Weag8l1rV29q6nfgz3kJunrK0P9Ndw-yU39Rvz_2JkARSh3YsE9jarolWehGQ375PMmCeOkiYY."
+	token := os.Getenv("TOKEN")
 	var records Records
 	for i, v := range data.Data {
 		singleAttr := SingleAttr{
-			ObjectID: strconv.Itoa(i + 1),
+			ObjectID:   strconv.Itoa(i + 1),
 			SingleLine: v.Loc,
 		}
 		attr := Attributes{singleAttr}
@@ -100,10 +101,10 @@ func get(w http.ResponseWriter, r *http.Request) {
 	}
 	marshaledRecords, err := json.Marshal(records)
 	if err != nil {
-			log.Fatal(err)
-			return
-		}
- 	encodedRecords := url.QueryEscape(string(marshaledRecords))
+		log.Fatal(err)
+		return
+	}
+	encodedRecords := url.QueryEscape(string(marshaledRecords))
 	URL := "https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/geocodeAddresses?addresses=" + encodedRecords + "&f=pjson&token=" + token
 
 	var resp *http.Response
@@ -153,7 +154,6 @@ func main() {
 	//	log.Fatalln(err)
 	//}
 	//defer file.Close()
-
 
 	//file, _ := ioutil.ReadFile(filename)
 	//data := AdDataNodes{}
