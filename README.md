@@ -24,4 +24,4 @@ docker build -t go-webscraper -f docker/webscraper/Dockerfile .
 # 2DO
 
 - [ ] envify
-- [ ]
+- [ ] add classes

@@ -76,18 +76,25 @@ func get(w http.ResponseWriter, r *http.Request) {
 		log.Fatal(err)
 	}
 
+	//read from json file - when not launched in a container
+	// filename := "./assets/scrap3m.json"	use this path when launched directly (not in a container)
+	filename := "./scrap3m.json"
+	file, _ := ioutil.ReadFile(filename)
+	mockData := AdDataNodes{}
+	_ = json.Unmarshal([]byte(file), &mockData)
+
+	//save to db
 	collection := client.Database("real-estate-3m").Collection("ads")
+	_, err = collection.InsertOne(context.TODO(), mockData)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	//read from db
 	data := AdDataNodes{}
 	if err = collection.FindOne(context.TODO(), bson.D{}).Decode(&data); err != nil {
 		log.Fatal(err)
 	}
-
-	/*//read from json file
-	filename := "./assets/scrap3m.json"
-	file, _ := ioutil.ReadFile(filename)
-	data := AdDataNodes{}
-	_ = json.Unmarshal([]byte(file), &data)
-	*/
 
 	token := os.Getenv("TOKEN")
 	var records Records

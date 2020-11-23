@@ -2,17 +2,11 @@ package main
 
 import (
 	"context"
+	"encoding/json"
 	"fmt"
-
-	"github.com/gocolly/colly/v2"
-	"github.com/gocolly/colly/v2/queue"
-
-	/*"io/ioutil"
-	"encoding/json"*/
+	"io/ioutil"
 	"log"
 	"os"
-	"strconv"
-	"strings"
 
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
@@ -32,7 +26,7 @@ type Data struct {
 	Data []AdData `json:"data"`
 }
 
-func getTotal(url string) (int, error) {
+/* func getTotal(url string) (int, error) {
 	var total int
 	var error error
 
@@ -45,10 +39,10 @@ func getTotal(url string) (int, error) {
 	c.Visit(url)
 
 	return total, error
-}
+} */
 
 func main() {
-	URL := "https://dom.trojmiasto.pl/nieruchomosci-rynek-wtorny/ikl,101,e1i,33_97_83_96_76_2,qi,42_55.html?strona="
+	/* URL := "https://dom.trojmiasto.pl/nieruchomosci-rynek-wtorny/ikl,101,e1i,33_97_83_96_76_2,qi,42_55.html?strona="
 
 	total, err := getTotal(URL)
 	if err != nil {
@@ -84,15 +78,15 @@ func main() {
 		q.Run(c)
 		data.Data = adData
 
-		/*//save to json file
-		PATH := "../backend/assets/scrap3m.json"
+		//save to json file
+		// PATH := "../backend/assets/scrap3m.json"
 
-		marshaledData, err := json.MarshalIndent(data, "", " ")
-		if err != nil {
-			log.Fatal(err)
-			return
-		}
-		_ = ioutil.WriteFile(PATH, marshaledData, 0644)*/
+		// marshaledData, err := json.MarshalIndent(data, "", " ")
+		// if err != nil {
+		// 	log.Fatal(err)
+		// 	return
+		// }
+		// _ = ioutil.WriteFile(PATH, marshaledData, 0644)
 
 		DB_CONNECTION_STRING := os.Getenv("MONGO_CONNECTION_STRING")
 		if DB_CONNECTION_STRING == "" {
@@ -113,5 +107,34 @@ func main() {
 		if err != nil {
 			log.Fatal(err)
 		}
+	} */
+
+	//read from json file
+	filename := "../backend/assets/scrap3m.json"
+	file, _ := ioutil.ReadFile(filename)
+	data := Data{}
+	_ = json.Unmarshal([]byte(file), &data)
+
+	fmt.Println(data)
+
+	// save to db
+	DB_CONNECTION_STRING := os.Getenv("MONGO_CONNECTION_STRING")
+	if DB_CONNECTION_STRING == "" {
+		DB_CONNECTION_STRING = "mongodb://root:password@localhost:27017/"
+	}
+	clientOptions := options.Client().ApplyURI(DB_CONNECTION_STRING)
+	client, err := mongo.Connect(context.TODO(), clientOptions)
+	if err != nil {
+		log.Fatal(err)
+	}
+	err = client.Ping(context.TODO(), nil)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	collection := client.Database("real-estate-3m").Collection("ads")
+	_, err = collection.InsertOne(context.TODO(), data)
+	if err != nil {
+		log.Fatal(err)
 	}
 }
