@@ -1,11 +1,13 @@
+![screencast](./assets/screencast.gif)
+
 # General remark
 
-Unfortunately the project became outdated ever since the data source (https://dom.trojmiasto.pl/) changed the layout and removed location data from ads
+Unfortunately the project has become deprecated ever since the data source (https://dom.trojmiasto.pl/) removed the location data from ads
 
 # Building
 
 By default the build uses temporary access token for ArcGIS geocoding API.
-The token expires on Dec 6 2020 11:09:34AM.
+The token expires on Jan 14 2021 11:08:04AM.
 Please obtain your own token at https://developers.arcgis.com/ and add it to `docker-compose.yml` in `backend` service config to make sure the app works as expected.
 
 ```

@@ -32,7 +32,7 @@ services:
       # - webscraper
     environment:
       - MONGO_CONNECTION_STRING=mongodb://root:password@db:27017
-      - TOKEN=sjOKTqhA8nR0LE8GwYi51uhiVbrToLuKRAC_vkZYFf7N-moyNm7A36vz7PjrP-FIt4GYgCM7ckXdLd36Du9QiK14ZtLlhIBhdUMg6ohtkpD0-xea-G0y0gGu4bTM8bBGsW3a__lF6G10R53kV0c6Zzyb7umjw4BxOlMyVO0J16f9ENVbLzqLpq_idRULrsN0cMKPxKYqUI5ntB6tckzWVhTTv5S3f_JSP2k3DQbRKAQ.
+      - TOKEN=NiUm7qH6HruxFt-gJaR4iJoQMdZWzMGuYeNAxQwTzwco8Szi3c8q7VsyCMw3IAaJZFUzScDpzHLEDBf0J5B29phypNtpKYz-1TY25bFQ14KxOzE21DXGpcFLenXQ4kyys1y8IVWdmrfxm6tDJUfHubqaKUS5hUeDaUS1byP6TdnkaTSuRQVvHHAAyza7uJ6MVLQ0YcgCKwp87m_-XJ1G-kqmbpUbxRpYwPXgdVJSf2E.
 
   frontend:
     build:

@@ -3,7 +3,7 @@ package main
 import (
 	"context"
 	"encoding/json"
-	"fmt"
+	/* "fmt" */
 	"io/ioutil"
 	"log"
 	"os"
@@ -115,7 +115,7 @@ func main() {
 	data := Data{}
 	_ = json.Unmarshal([]byte(file), &data)
 
-	fmt.Println(data)
+	// fmt.Println(data)
 
 	// save to db
 	DB_CONNECTION_STRING := os.Getenv("MONGO_CONNECTION_STRING")
