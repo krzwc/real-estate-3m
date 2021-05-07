@@ -2,7 +2,7 @@ const jsonServer = require('json-server')
 const originalJSON = require('./scrap3m')
 const axios = require('axios')
 
-const TOKEN = 'EfpuXlCvYMNSZ1Vbn5EZB9jfbNbqvvDqToqfqnq7w6Xlys3gKZV8aE8ixOU2S1NEFsA7aXqZEJO8uaGD66s6RsWeY6WX75WJaobU5WUOfgpc-qFDo-7ntHiX7b03UejUnAiw8ZDjLUNn9H2kcZtSZ73bwVAxtIv1VQc52Nz3CDEMHuJiFGV54pt8aElrxzGXfqw3LAKG0RpAQCBIRBmZ96G5kYr52VA5Dv55sqEcu98.'
+const TOKEN = 'AAPKb26a5eadcfac4857a915149114837d5eWYMZ_3IyRYSTrHoXxvHPajJH46LrjTiovc9azU06Wbj8mWmQAKCHzHEdQU3HPLke'
 const addressArr = originalJSON.data.map((ad) => ad.loc)
 const addressObj = {
     "records": addressArr.map((address, index) => ({

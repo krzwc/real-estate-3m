@@ -32,7 +32,16 @@ services:
       # - webscraper
     environment:
       - MONGO_CONNECTION_STRING=mongodb://root:password@db:27017
-      - TOKEN=NiUm7qH6HruxFt-gJaR4iJoQMdZWzMGuYeNAxQwTzwco8Szi3c8q7VsyCMw3IAaJZFUzScDpzHLEDBf0J5B29phypNtpKYz-1TY25bFQ14KxOzE21DXGpcFLenXQ4kyys1y8IVWdmrfxm6tDJUfHubqaKUS5hUeDaUS1byP6TdnkaTSuRQVvHHAAyza7uJ6MVLQ0YcgCKwp87m_-XJ1G-kqmbpUbxRpYwPXgdVJSf2E.
+      - TOKEN=AAPKb26a5eadcfac4857a915149114837d5eWYMZ_3IyRYSTrHoXxvHPajJH46LrjTiovc9azU06Wbj8mWmQAKCHzHEdQU3HPLke
+
+  dummy-server:
+    build:
+      context: .
+      dockerfile: docker/dummy-server/Dockerfile
+    volumes:
+      - ./dummy-server:/app
+    ports:
+      - "4000:4000"
 
   frontend:
     build:

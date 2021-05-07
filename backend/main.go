@@ -9,6 +9,7 @@ import (
 	"net/url"
 	"os"
 	"strconv"
+	"fmt"
 
 	"github.com/gorilla/mux"
 
@@ -112,7 +113,7 @@ func get(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	encodedRecords := url.QueryEscape(string(marshaledRecords))
-	URL := "https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/geocodeAddresses?addresses=" + encodedRecords + "&f=pjson&token=" + token
+	URL := "https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/geocodeAddresses?addresses=" + encodedRecords + "&f=pjson?apiKey=" + token
 
 	var resp *http.Response
 	if resp, err = http.Get(URL); err != nil {
@@ -120,6 +121,7 @@ func get(w http.ResponseWriter, r *http.Request) {
 	}
 	defer resp.Body.Close()
 	if resp.StatusCode == http.StatusOK {
+		fmt.Println(resp)
 		bodyBytes, err := ioutil.ReadAll(resp.Body)
 		if err != nil {
 			log.Fatal(err)
@@ -128,7 +130,7 @@ func get(w http.ResponseWriter, r *http.Request) {
 		var bodyData ResponseBody
 		_ = json.Unmarshal([]byte(bodyBytes), &bodyData)
 
-		//fmt.Println(bodyData)
+		// fmt.Println(bodyData)
 		for i := range data.Data {
 			data.Data[i].Lon = bodyData.Locations[i].Location.X
 			data.Data[i].Lat = bodyData.Locations[i].Location.Y
